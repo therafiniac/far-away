@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Item from "./Item";
+import Item from "./Item.jsx";
 
 export default function PackingList({
   items,
   onDeleteItem,
   onToggleItem,
-  onleClearList,
+  onClearList,
 }) {
   const [sortBy, setSortBy] = useState("input");
   let sortedItems;
@@ -31,13 +31,13 @@ export default function PackingList({
           />
         ))}
       </ul>
-      <div className="action">
+      <div className="actions">
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="input">Sort by input order</option>
           <option value="description">Sort by description</option>
           <option value="packed">Sort by input packed status</option>
         </select>
-        <button onClick={onleClearList}>Clear list</button>
+        <button onClick={onClearList}>Clear list</button>
       </div>
     </div>
   );
